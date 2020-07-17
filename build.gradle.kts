@@ -26,6 +26,7 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation("junit:junit:4.13")
+    testImplementation("com.github.stefanbirkner:system-rules:1.19.0")
 }
 
 application {
