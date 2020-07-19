@@ -11,14 +11,13 @@ import static org.junit.Assert.assertEquals;
 
 public class AppTest {
     @Rule
-    public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
+    public final SystemOutRule systemOutRule = new SystemOutRule().enableLog().muteForSuccessfulTests();
 
     @Test
     public void testEndToEndEightQueens() {
         App.main("8");
-        // todo real solution when no-3-in-line implemented
-        //assertEquals("a5, b7, c1, d4, e2, f8, g6, h3\n", systemOutRule.getLogWithNormalizedLineSeparator());
-        assertEquals("a1, b5, c8, d6, e3, f7, g2, h4\n", systemOutRule.getLogWithNormalizedLineSeparator());
+        // expected solution comes from wikipedia: https://en.wikipedia.org/wiki/Eight_queens_puzzle#Solutions , see #10
+        assertEquals("a3, b5, c8, d4, e1, f7, g2, h6\n", systemOutRule.getLogWithNormalizedLineSeparator());
     }
 
     @Test

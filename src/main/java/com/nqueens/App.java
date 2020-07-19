@@ -36,7 +36,8 @@ public class App {
 
     @VisibleForTesting
     static List<Integer> solve(int queensNumber) throws SolutionNotFoundException {
-        return new SquareBoardBackTracker().solve(queensNumber, QueenPredicate.createQueenPredicate());
+        BackTrackerPredicate predicate = QueenPredicate.createQueenPredicate().and(new ThreeInLinePredicate());
+        return new SquareBoardBackTracker().solve(queensNumber, predicate);
     }
 
     @VisibleForTesting

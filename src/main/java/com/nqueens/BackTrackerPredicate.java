@@ -20,4 +20,8 @@ import java.util.List;
 @FunctionalInterface
 interface BackTrackerPredicate {
     boolean isValid(List<Integer> validPositions, int newPosition);
+
+    default BackTrackerPredicate and(BackTrackerPredicate other) {
+        return (validPositions, newPosition) -> isValid(validPositions, newPosition) && other.isValid(validPositions, newPosition);
+    }
 }
