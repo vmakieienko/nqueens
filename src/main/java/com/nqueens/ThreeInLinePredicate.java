@@ -1,18 +1,3 @@
-/*
- * Copyright © 2016-2020 Jelurida IP B.V.
- *
- * See the LICENSE.txt file at the top-level directory of this distribution
- * for licensing information.
- *
- * Unless otherwise agreed in a custom licensing agreement with Jelurida B.V.,
- * no part of this software, including this file, may be copied, modified,
- * propagated, or distributed except according to the terms contained in the
- * LICENSE.txt file.
- *
- * Removal or modification of this copyright notice is prohibited.
- *
- */
-
 package com.nqueens;
 
 import com.google.common.math.IntMath;
@@ -21,7 +6,19 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Represents requirement: no three points can be placed on same line.
+ * See test for three-in-line examples.
+ */
 public class ThreeInLinePredicate implements BackTrackerPredicate {
+    /**
+     * Checks only new position(x, y) against pairs of points represented by valid positions list.
+     *
+     * @param validPositions - list of already validated positions(row number, 0-based).
+     *                       Index in list corresponds to column number (0-based)
+     * @param newPositionY   - suggested position to be checked not to form third point in line.
+     * @return true - if no 3 in line found.
+     */
     @Override
     public boolean isValid(List<Integer> validPositions, int newPositionY) {
         final int newPositionX = validPositions.size();
