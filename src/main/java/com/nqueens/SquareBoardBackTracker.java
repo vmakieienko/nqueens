@@ -1,25 +1,22 @@
-/*
- * Copyright © 2016-2020 Jelurida IP B.V.
- *
- * See the LICENSE.txt file at the top-level directory of this distribution
- * for licensing information.
- *
- * Unless otherwise agreed in a custom licensing agreement with Jelurida B.V.,
- * no part of this software, including this file, may be copied, modified,
- * propagated, or distributed except according to the terms contained in the
- * LICENSE.txt file.
- *
- * Removal or modification of this copyright notice is prohibited.
- *
- */
-
 package com.nqueens;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class SquareBoardBackTracker {
+/**
+ * Implementation of backtracking algorithm fore square board.
+ * It searches for valid position in each column, one by one.
+ * It assumes that one and only one valid position(row) exists in each column.
+ * All positions are 0-based.
+ */
+class SquareBoardBackTracker {
+    /**
+     * @param boardSize - size of the board, also number of row+column positions to find.
+     * @param partialSolutionPredicate - predicate to check if suggested new position is valid regarding already determined valid positions.
+     * @return - list of row numbers, each in list position corresponding to column number.
+     * @throws SolutionNotFoundException - if solution was not found for this board size and predicate.
+     */
     List<Integer> solve(int boardSize, BackTrackerPredicate partialSolutionPredicate) throws SolutionNotFoundException {
         List<Integer> result = new ArrayList<>();
         if (solve(result, boardSize, partialSolutionPredicate)) {

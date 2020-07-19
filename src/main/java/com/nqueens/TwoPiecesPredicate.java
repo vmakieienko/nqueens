@@ -1,21 +1,19 @@
-/*
- * Copyright © 2016-2020 Jelurida IP B.V.
- *
- * See the LICENSE.txt file at the top-level directory of this distribution
- * for licensing information.
- *
- * Unless otherwise agreed in a custom licensing agreement with Jelurida B.V.,
- * no part of this software, including this file, may be copied, modified,
- * propagated, or distributed except according to the terms contained in the
- * LICENSE.txt file.
- *
- * Removal or modification of this copyright notice is prohibited.
- *
- */
-
 package com.nqueens;
 
+/**
+ * Implementations of this interface will check if 2 chess pieces don't threaten each other.
+ * This interface is to separate chess logic from back tracking algorithm logic.
+ */
 public interface TwoPiecesPredicate {
+    /**
+     * Check if two pieces are in safe positions related to each other.
+     *
+     * @param x1 - x-coordinate of the first piece
+     * @param y1 - y-coordinate of the first piece
+     * @param x2 - x-coordinate of the second piece
+     * @param y2 - y-coordinate of the second piece
+     * @return - true if pieces don't threaten each other.
+     */
     boolean isSafe(int x1, int y1, int x2, int y2);
 
     default TwoPiecesPredicate and(TwoPiecesPredicate other) {

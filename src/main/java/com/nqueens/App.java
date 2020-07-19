@@ -5,13 +5,19 @@ import com.google.common.annotations.VisibleForTesting;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * CLI util for n-queens problem solution.
+ * Accepts single parameter - positive integer representing number of queens to find positions for.
+ * Chess board has the same dimensions by problem definition.
+ * Prints result in algebraic notation (chess), generalized for boards bigger than 26x26(26 = z, 27 = ba...).
+ */
 public class App {
     public static void main(String... args) {
         if (args.length != 1) {
             System.out.println("CLI util for n-queens problem solution.");
             System.out.println("Usage: <number-of-queens>");
             System.out.println("\t number-of-queens - integer representing number of queens to find positions for.");
-            System.out.println("\t                    Chess board has the same dimensions size by problem definition.");
+            System.out.println("\t                    Chess board has the same dimensions by problem definition.");
             return;
         }
         final String arg = args[0];
@@ -40,6 +46,12 @@ public class App {
         return new SquareBoardBackTracker().solve(queensNumber, predicate);
     }
 
+    /**
+     *
+     * @param positions - list of 0-based row numbers(transformed to 1-based numbers) on list positions
+     *                  corresponding to columns (transformed to a-based letters)
+     * @return - ", " - separated list of positions in algebraic notation.
+     */
     @VisibleForTesting
     static String positionsToString(List<Integer> positions) {
         List<String> result = new ArrayList<>();
@@ -51,6 +63,10 @@ public class App {
         return String.join(", ", result);
     }
 
+    /**
+     * @param position - 0-based position
+     * @return 1-based position string representation
+     */
     @VisibleForTesting
     static String numberPositionToString(int position) {
         return String.valueOf(position + 1);

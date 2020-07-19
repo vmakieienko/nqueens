@@ -56,7 +56,7 @@ public class AppTest {
                 "CLI util for n-queens problem solution.\n" +
                 "Usage: <number-of-queens>\n" +
                 "\t number-of-queens - integer representing number of queens to find positions for.\n" +
-                "\t                    Chess board has the same dimensions size by problem definition.\n";
+                "\t                    Chess board has the same dimensions by problem definition.\n";
         assertEquals(expected, systemOutRule.getLogWithNormalizedLineSeparator());
     }
 
