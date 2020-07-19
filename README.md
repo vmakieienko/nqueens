@@ -9,7 +9,7 @@ If no solution found, the util prints message "No solution found." to standard o
 
 
 Implementation details: 
-* implements backtracking algorithm.
+* solution based on backtracking search algorithm. I use a recursion here since search depth is small. 
 * single thread, mutly-threading did not give consistent performance improvement
 * memory consumption: so far was running ok with default java settings
 * performance on i7-8568U: N in [0..21] - under a minute, [22..31) and (31..35] - under 10 minutes, [32] - under 40 minutes.
