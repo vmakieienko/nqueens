@@ -20,3 +20,6 @@ See class com.nqueens.App for entry point.
 Command line example of run using gradle: 
 
 `gradle run --args="8"`
+
+
+![Java CI with Gradle](https://github.com/vmakieienko/nqueens/workflows/Java%20CI%20with%20Gradle/badge.svg)
